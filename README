@@ -1,0 +1,25 @@
+Torrey Zaches OS section 6-9pm submission for assignment 4 TinyFS
+
+I completed all the core functionality, plus add-ons a, b, d, and e, for a total possible score of 70+40=110%
+
+Brief explanation of each file/structure of project:
+
+1. libDisk.c/h files contain the phase 1 functions
+diskList.c/h is used by libdisk to keep track of file descriptors
+
+2. safeDiskUtil.c/h is a wrapper for the phase 1 functions with error checking. The other files for phase 2 rarely directly use the phase 1 calls. They use this instead.
+
+3. tinyFS.c/h contains the main implementation functions. It also contains functions at the bottom to redirect to the add-on implementation, which is in tinyFSExtraFeatures.c/h
+
+4. The two main function files (in 3.) use tinyFSStructs.h for the format of the blocks, tinyFS_errno.h for error codes, and tinyFSHelper.c/h for several helper functions
+
+5. tinyFSOpenList.c/h is a linked list keeping track of which files are open
+
+6. testDisk.c is the program I used to test the project.
+
+To use testDisk.c, run:
+make && ./testDisk
+
+The testDisk.c prints out an explanation of everything it is testing and the results, piece-by-piece.
+You can read everything testDisk.c prints, top-down, while folloing along with its code to verify the fileSystem works as intended. 
+(or create your own tests, and use testDisk.c as a reference for some of the specifics on how things are supposed to be called)
